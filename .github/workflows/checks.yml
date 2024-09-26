@@ -11,7 +11,7 @@ concurrency:
 
 jobs:
   changed:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     permissions:
       contents: read
       pull-requests: read
@@ -32,7 +32,7 @@ jobs:
               - '.github/workflows/*.yml'
 
   check-actions:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     needs: changed
     if: needs.changed.outputs.actions == 'true'
     timeout-minutes: 10
@@ -51,7 +51,7 @@ jobs:
           reporter: github-pr-review
 
   status-check:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     needs:
       - check-actions
     permissions: { }
